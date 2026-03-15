@@ -1,23 +1,149 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tính tiền Bida theo thời gian</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+<title>Bida Split Bill - Tính tiền Bida</title>
 
-  <!-- React & ReactDOM CDN -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <!-- Babel để dùng JSX trong script.js -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link rel="stylesheet" href="style.css">
+
 </head>
-<body>
-  <div id="root"></div>
 
-  <!-- Code React dùng JSX nằm trong script.js -->
-  <script type="text/babel" src="script.js"></script>
+<body>
+
+<div class="app">
+
+  <div class="header">
+    <div class="title-group">
+      <div class="title">Bida Split Bill</div>
+      <div class="subtitle">
+        Tổng tiền bill • Thời gian từng người (giờ + phút)
+      </div>
+    </div>
+    <div class="badge">Time Ratio</div>
+  </div>
+
+
+  <div class="form">
+
+    <div class="field">
+      <label for="totalBill">Tổng tiền bill Combo</label>
+
+      <div class="input-wrapper">
+        <span class="input-prefix">₫</span>
+
+        <input
+          id="totalBill"
+          type="number"
+          placeholder="VD: 200000"
+        >
+
+      </div>
+    </div>
+
+
+    <div class="field">
+      <label for="totalHours">Tổng số giờ Combo</label>
+
+      <div class="input-wrapper">
+        <span class="input-prefix">⏱</span>
+
+        <input
+          id="totalHours"
+          type="number"
+          step="0.1"
+          placeholder="VD: 4 (giờ)"
+        >
+
+      </div>
+    </div>
+
+
+    <div class="field">
+
+      <label>Thời gian người chơi (Giờ & Phút)</label>
+
+      <div class="players" id="playersContainer">
+      </div>
+
+      <button
+        type="button"
+        class="add-btn"
+        id="addPlayerBtn"
+      >
+        + Thêm người chơi
+      </button>
+
+    </div>
+
+
+    <button
+      class="button"
+      id="calculateBtn"
+      type="button"
+    >
+      Tính tiền từng người
+    </button>
+
+  </div>
+
+
+  <div
+    class="error"
+    id="errorBox"
+    style="display:none;"
+  ></div>
+
+
+  <div
+    class="result-card"
+    id="resultCard"
+    style="display:none;"
+  >
+
+    <div class="result-header">
+      <div class="result-title">
+        Kết quả chia tiền
+      </div>
+
+      <div
+        class="chip"
+        id="resultChip"
+      ></div>
+    </div>
+
+
+    <div id="resultPlayers">
+    </div>
+
+
+    <div
+      class="result-line"
+      style="
+      margin-top:8px;
+      border-top:1px dashed rgba(148,163,184,0.5);
+      padding-top:8px;
+      "
+    >
+
+      <span class="result-label">
+        Tổng cộng (theo chia)
+      </span>
+
+      <span
+        class="result-value"
+        id="resultTotal"
+      ></span>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
